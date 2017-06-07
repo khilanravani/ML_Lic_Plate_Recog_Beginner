@@ -16,6 +16,10 @@ These project basically contain 4 important parts:-
 * If you want to add anything please create issue first and then PR
 * If you add any new document please update **README.md**
 
+## Reference 
+*[The Essential guide to Image Processing](docs/bovik_image_processing.pdf)
+*[Digital Image Processing](docs/Digital_Image_Processing_2ndEd.pdf.1)
+
 ## Project Manager
 
 * [Heet Sankesara](https://github.com/Hsankesara)
