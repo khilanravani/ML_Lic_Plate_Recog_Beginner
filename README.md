@@ -6,7 +6,8 @@ to know more Read [Basic Project Guide](docs/p-1628--number_place_recognition.pd
 
 These project basically contain 4 important parts:-
 1. License plate localization
-   1. [Basic Knowledge](docs/IJETT-V10P322.pdf)
+   * [Basic Knowledge](docs/IJETT-V10P322.pdf)
+   * [Inverse and weiner filters](docs/ImageRestoration.pdf) and chapter 14 of [The Essential guide to Image Processing](docs/bovik_image_processing.pdf)
 1. License plate character extraction
 1. License plate character recognition
 1. Anaylise data of plate
