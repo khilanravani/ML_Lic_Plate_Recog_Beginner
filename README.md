@@ -1,10 +1,10 @@
-# Machine Learning License Plate Recognition Beginner
-It is an project to identify and anaylize license plate number from an image. It is basically a beginner project for sole purpose of learning a very polpular area in computer science **Image Processing**.
+# Machine Learning : License Plate Recognition Beginner
+It is a project to identify and anaylize license plate number from an image. It is basically a beginner project for the sole purpose of learning a very polpular area in computer science **Image Processing**.
 to know more Read [Basic Project Guide](docs/p-1628--number_place_recognition.pdf)
 
 ## Project Guide
 
-These project basically contain 4 important parts:-
+This project can be divided in 4 core parts:-
 1. License plate localization
    * [Basic Knowledge](docs/IJETT-V10P322.pdf)
    * [Inverse and weiner filters](docs/ImageRestoration.pdf) and also refer chapter 14 of [The Essential guide to Image Processing](docs/bovik_image_processing.pdf)
@@ -24,7 +24,7 @@ These project basically contain 4 important parts:-
 * [The Essential guide to Image Processing](docs/bovik_image_processing.pdf)
 * [Digital Image Processing](docs/Digital_Image_Processing_2ndEd.pdf)
 
-## Project Manager
+## Project Managers
 
 * [Heet Sankesara](https://github.com/Hsankesara)
 * [Khilan Ravani](https://github.com/khilanravani)
