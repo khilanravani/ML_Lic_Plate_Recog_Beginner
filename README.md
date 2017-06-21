@@ -9,7 +9,8 @@ These project basically contain 4 important parts:-
    * [Basic Knowledge](docs/IJETT-V10P322.pdf)
    * [Inverse and weiner filters](docs/ImageRestoration.pdf) and also refer chapter 14 of [The Essential guide to Image Processing](docs/bovik_image_processing.pdf)
    * [ Histogram Equalisation](docs/histogram_equalisation.pdf) to enhance contrast in Gray image.
-   * [ Binarization of Image](docs/otsu.pdf).	
+   * [ Binarization of Image](docs/otsu.pdf).
+   * [Sobel edge detection algorithm](docs/sobel.pdf).
 1. License plate character extraction
 1. License plate character recognition
 1. Anaylise data of plate
