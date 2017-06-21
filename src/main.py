@@ -10,7 +10,7 @@ def input():
                 well an 2D array which contain (R, G, B)
                 value of cooardinate (x, y)
     """
-    img = Image.open('/home/heet/Git/ML_Lic_Plate_Recog_Beginner/img/img_test1.jpg')
+    img = Image.open('./img/img_test2.jpeg')
     pix = img.load()
     return img, pix
 
