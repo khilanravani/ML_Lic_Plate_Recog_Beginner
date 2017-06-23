@@ -22,35 +22,33 @@ class filters(object):
                 gray[i][j] = int(0.299*color[0] + 0.587*color[1]
                                  + 0.114*color[2])
         # remove below hash to check if output of image
-        # misc.imsave('./img/op4.jpg', gray)
+        # misc.imsave('./img/gray_check.jpg', gray)
         return gray
 
-
     def histogram_equalisation(self, gray_array):
-        freq = [0] * 8
-        w, h =  gray_array.shape[0], gray_array.shape[1]
-        total = w * h
-        for i in range(w):
-            for j in range(h):
-                if gray_array[i, j] == 0.0:
-                    index = 0
-                else:
-                    index = int(math.floor(math.log(gray_array[i, j], 2)))
-                freq[index] += 1
-        print freq
-        cfeq = [0]*8
-        cfeq[0] = (freq[0]*1.0) / total
-        for i in range(1, 8):
-            cfeq[i] = cfeq[i - 1] + ((freq[i]*1.0) / total)
-        print cfeq
-        for i in range(8):  
-            cfeq[i] *= 7
-        for i in range(w):
-            for j in range(h):
-                if gray_array[i, j] == 0.0:
-                    index = 0
-                else:
-                    index = int(math.floor(math.log(gray_array[i, j], 2)))
-                gray_array[i, j] = int(cfeq[index] ** 2)
-        print cfeq
+        """
+        hitogram equalisation method enhance contrast of image
+        :param gray_array: array of gray scale image
+        :Returns : It returns enhanced array
+        for more go to https://en.wikipedia.org/wiki/Histogram_equalization
+        """
+        freq = [0] * 256
+        wt, ht = gray_array.shape[0], gray_array.shape[1]
+        total = wt * ht - 1
+        min_pos = -1
+        for i in range(wt):
+            for j in range(ht):
+                freq[int(gray_array[i, j])] += 1
+                if min_pos == -1 or gray_array[i, j] < min_pos:
+                    min_pos = int(gray_array[i, j])
+        cfeq = [0] * 256
+        cfeq[0] = freq[0]
+        for i in range(1, 256):
+            cfeq[i] = cfeq[i - 1] + freq[i]
+        h = [0] * 256
+        for v in range(256):
+            h[v] = (((cfeq[v] - cfeq[min_pos]) * 1.0) / total) * 255
+        for i in range(wt):
+            for j in range(ht):
+                gray_array[i, j] = h[int(gray_array[i, j])]
         return gray_array
