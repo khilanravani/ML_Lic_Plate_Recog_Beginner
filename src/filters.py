@@ -52,3 +52,78 @@ class filters(object):
             for j in range(ht):
                 gray_array[i, j] = h[int(gray_array[i, j])]
         return gray_array
+
+    def median_filter(self, gray_array):
+        w, h = gray_array.shape[0], gray_array.shape[0]
+        for i in range(w):
+            for j in range(h):
+                self.median(i, j, gray_array)
+        misc.imsave('./img/filter_check.jpeg', gray_array)
+        return gray_array
+
+    def median(self, x, y, array):
+        window_size = 5
+        if x == 0 or x == array.shape[0] -1:
+            window_size -= 1
+        if y ==0 or y == array.shape[1] -1:
+            window_size -= 1
+        window = [0] * window_size
+        i = 0
+        window[i] = array[x, y]
+        i+=1
+        if x != 0:
+            window[i] = array[x-1, y]
+            i += 1
+        if y != 0:
+            window[i] = array[x, y-1]
+            i += 1
+        if x != array.shape[0]-1:
+            window[i] = array[x + 1, y]
+            i += 1
+        if y != array.shape[1] - 1:
+            window[i] = array[x, y + 1]
+        to_allot = self.quick_select(window,int(window_size/2))
+        i = 0
+        array[x, y] = to_allot
+        return
+
+    def quick_select(self, array, k):
+        """
+        Perform quick select operation i.e find kth minimum element from array
+        Time Complexity: O(n) for average case and O(n^2) for worst cases
+        param a: Array on which operation would perfom
+        param k: kth minimun element have to find
+        return: returns kth minimum value
+        """
+        start = 0
+        end = len(array) - 1
+        is_found = False
+        while not is_found:
+            pos = self.partition(array, start, end)
+            if pos == k:
+                is_found = True
+                return array[pos]
+            elif pos < k:
+                start = pos + 1
+            else:
+                end = pos - 1
+
+    def partition(self, array, start, end):
+        """
+        Perform Partition Operation on array a.
+        Time Complexity: O(nLogn)
+        Auxiliary Space: O(n)
+        :param a: Iterable of elements
+        :param start: pivot value for array
+        :param end: right limit of array
+        :return: return i value for function, used in partitioning of array.
+        """
+        i = start - 1
+        pivot = array[end]
+        for j in range(start, end):
+            if array[j] <= pivot:
+                i += 1
+                array[i], array[j] = array[j], array[i]
+        i += 1
+        array[i], array[end] = array[end], array[i]
+        return i
