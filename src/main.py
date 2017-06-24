@@ -1,6 +1,8 @@
 import numpy as np
 import scipy as sc
+from scipy import misc
 from PIL import Image
+from filters import filters
 
 
 def input():
@@ -9,17 +11,23 @@ def input():
     Returns:    It returns variable contain image as
                 well an 2D array which contain (R, G, B)
                 value of cooardinate (x, y)
-    """
-    img = Image.open('./img/img_test2.jpeg')
-    pix = img.load()
-    return img, pix
+        """
+    pix = misc.imread('./img/img_test14.jpeg')
+    return pix
 
 
 def main():
-    img, img_array = input()
-    img.show()
-    print img_array[0, 0]
 
+    img_array = input()
+    fliter_use = filters(img_array)
+    gray_array = fliter_use.grayscale()
+    # remove below hash to check gray conversion of input image
+    # misc.imsave('./img/gray_tst.jpeg', gray_array)
+    histo_array = fliter_use.histogram_equalisation(gray_array)
+    # remove below hash to chack histogram conversion of image
+    # misc.imsave('./img/histo_test.jpeg', histo_array)
+    # remove below hash to see grayscale array
+    # print gray_array[4]
 
 if __name__ == '__main__':
     main()
