@@ -54,6 +54,11 @@ class filters(object):
         return gray_array
 
     def median_filter(self, gray_array):
+        """
+        to reduce noise in image
+        :param gray_array : takes array of gray image
+        :returns : array with reduced noise
+        """
         w, h = gray_array.shape[0], gray_array.shape[0]
         for i in range(w):
             for j in range(h):
@@ -62,15 +67,23 @@ class filters(object):
         return gray_array
 
     def median(self, x, y, array):
+        """
+        find median of a particular location in 2D array
+        :param x: row coordinate of location
+        :param y: column of the location
+        :param array: 2D array itself
+        Assign Median of array to location
+        and  returns None
+        """
         window_size = 5
-        if x == 0 or x == array.shape[0] -1:
+        if x == 0 or x == array.shape[0] - 1:
             window_size -= 1
-        if y ==0 or y == array.shape[1] -1:
+        if y == 0 or y == array.shape[1] - 1:
             window_size -= 1
         window = [0] * window_size
         i = 0
         window[i] = array[x, y]
-        i+=1
+        i += 1
         if x != 0:
             window[i] = array[x-1, y]
             i += 1
@@ -82,8 +95,11 @@ class filters(object):
             i += 1
         if y != array.shape[1] - 1:
             window[i] = array[x, y + 1]
-        to_allot = self.quick_select(window,int(window_size/2))
-        i = 0
+        if window_size % 2 == 1:
+            to_allot = self.quick_select(window, int(window_size/2))
+        else:
+            to_allot = (self.quick_select(window, int(window_size / 2)) +
+                        self.quick_select(window, window_size / 2 - 1)) / 2
         array[x, y] = to_allot
         return
 
