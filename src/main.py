@@ -12,7 +12,7 @@ def input():
                 well an 2D array which contain (R, G, B)
                 value of cooardinate (x, y)
         """
-    pix = misc.imread('./img/img_test8.jpeg')
+    pix = misc.imread('./img/img_test11.jpeg')
     return pix
 
 
