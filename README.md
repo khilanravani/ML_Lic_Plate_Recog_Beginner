@@ -23,6 +23,7 @@ This project can be divided in 4 core parts:-
 ## Reference 
 * [The Essential guide to Image Processing](docs/bovik_image_processing.pdf)
 * [Digital Image Processing](docs/Digital_Image_Processing_2ndEd.pdf)
+* [Image Processing](http://www.imageprocessingplace.com/)
 
 ## Project Managers
 

@@ -143,3 +143,6 @@ class filters(object):
         i += 1
         array[i], array[end] = array[end], array[i]
         return i
+
+    def otsu_binarization(self, gray_array):
+        
